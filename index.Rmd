@@ -1,0 +1,39 @@
+---
+title: "Dimensions of trees"
+author: "Rachel Karpman"
+date: "May 21, 2018"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE)
+```
+
+## The trees data set 
+
+This data set provides the dimensions of 31 felled cherry trees.
+
+* Girth: tree diameter in inches.
+* Height: height in feet.
+* Volume: timber volume in cubic feet.
+
+## Height versus girth for trees
+
+Bubble size is proportional to volume.
+```{r}
+library(plotly)
+plot_ly(trees, x = ~Height, y = ~Girth, size = ~Volume,
+              type = "scatter", mode = "markers",
+              hoverinfo = "text",
+              text = ~paste('Volume: ', Volume,
+                            '<br> Height: ', Height,
+                            '<br> Girth: ', Girth))
+```
+
+## Observations
+
+* As expected, volume increases with height and girth.
+* Girth appears to have a larger impact than height.
+* Small changes in girth lead to large changes in volume.
+
+Thanks for reading!
